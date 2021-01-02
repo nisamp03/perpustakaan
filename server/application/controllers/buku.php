@@ -11,16 +11,29 @@ class Buku extends REST_Controller
         //inisialisasi model Produk_model.php dengan nama produk
         $this->load->model('buku_model', 'buku');
     }
-    public function index_get()
-    {
-       $id = $this->get('id');
-        if ($id == '') {
-            $buku = $this->db->get('buku')->result();
+
+    // Get Data
+    public function index_get() {
+        $id = $this->get('id');
+        // jika id tidak ada id 
+        if($id === null) {
+            // maka panggil semua data
+            $buku = $this->buku->getBuku();
         } else {
-            $this->db->where('id', $id);
-            $buku = $this->db->get('buku')->result();
+                // tapi jika id di panggil maka hanya id tersebut yang akan muncul pada data tersebut
+            $buku = $this->buku->getBuku($id);
         }
-        $this->response($buku, REST_Controller::HTTP_OK);
+        if($buku) {
+            $this->response([
+                'status' => REST_Controller::HTTP_OK,
+                'data' => $buku
+            ]); 
+        } else {
+            $this->response([
+                'status' => REST_Controller::HTTP_NO_CONTENT,
+                'message' => 'Data Tersebut Tidak Ada'
+            ]);             
+        }
     }
 	
 	function index_post()

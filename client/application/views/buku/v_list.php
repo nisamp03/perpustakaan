@@ -22,7 +22,7 @@
     </tr>
     <?php
     $i=1;
-    foreach ($buku as $buku) {
+    foreach ($data as $buku) {
         echo "<tr>
               <td>$i</td>
               <td>$buku->judul</td>
