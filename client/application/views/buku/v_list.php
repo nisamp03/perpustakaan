@@ -9,7 +9,7 @@
 
 </font>
 <h2>DAFTAR BUKU</h2>
-<a href=<?=base_url()?>index.php/buku/input>+ Tambah data</a>
+<a href=<?=base_url()?>index.php/buku/simpan>+ Tambah data</a>
 <table class="table1">
     <tr>
         <th width=10%>No</th>

@@ -6,48 +6,34 @@
     }
 </script>
 </head>
-
-<font color="orange">
-<?php echo $this->user_model->getSessionUser(); ?> | <a href=<?=base_url()?>index.php/login/logout>Logout</a>
-</font>
 <br />
-<?php echo form_open_multipart('companies/input'); ?>
+<?php echo form_open_multipart('buku/simpan'); ?>
 <h2>TAMBAH DATA PERUSAHAAN</h2>
 <table class="table2">
     <tr>
-        <td width=50%>Nama</td>
+        <td width=50%>Judul</td>
         <td width=2%>:</td>
-        <td width=48%><?php echo form_input('nama_iuphhk'); ?></td>
+        <td width=48%><?php echo form_input('judul'); ?></td>
     </tr>
     <tr>
-        <td>Nomor SK</td>
+        <td>Penulis</td>
         <td>:</td>
-        <td><?php echo form_input('sk_izin'); ?></td>
+        <td><?php echo form_input('penulis'); ?></td>
     </tr>        
     <tr>
-        <td>Tanggal</td>
+        <td>Tahun Terbit</td>
         <td>:</td>
-        <td><?php echo form_input('tanggal_sk'); ?></td>
+        <td><?php echo form_input('tahun_terbit'); ?></td>
     </tr> 
     <tr>
-        <td>Alamat</td>
+        <td>Penerbit</td>
         <td>:</td>
-        <td><?php echo form_input('alamat_kantor'); ?></td>
+        <td><?php echo form_input('penerbit'); ?></td>
     </tr> 
     <tr>
-        <td>Telepon</td>
+        <td>Jenis Buku</td>
         <td>:</td>
-        <td><?php echo form_input('telepon_kantor'); ?></td>
-    </tr>
-    <tr>
-        <td>Nama Contact Person</td>
-        <td>:</td>
-        <td><?php echo form_input('pic'); ?></td>
-    </tr>
-    <tr>
-        <td>Telepon Contact Person</td>
-        <td>:</td>
-        <td><?php echo form_input('telepon_pic'); ?></td>
+        <td><?php echo form_input('jenis_buku'); ?></td>
     </tr>
     <tr>
         <td colspan="3">

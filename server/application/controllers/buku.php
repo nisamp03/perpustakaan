@@ -36,23 +36,29 @@ class Buku extends REST_Controller
         }
     }
 	
-	function index_post()
-    {
-        $data = array(
-            'id'        => $this->post('id'),
-            'judul'        => $this->post('judul'),
-            'penulis'               => $this->post('penulis'),
-			'tahun_terbit'               => $this->post('tahun_terbit'),
-			'penerbit'               => $this->post('penerbit'),
-            'jenis_buku'              => $this->post('jenis_buku'),
-        );
-        $insert = $this->db->insert('buku', $data);
-        if ($insert) {
-            $this->response($data, REST_Controller::HTTP_OK);
-        } else {
-            $this->response(array('status' => 'fail', 502));
-        }
-    }
+        // post data
+        public function index_post() {
+            $data = [
+                'judul'       => $this->post('judul'),
+                'penulis'           => $this->post('penulis'),
+                'tahun_terbit'        => $this->post('tahun_terbit'),
+                'penerbit'     => $this->post('penerbit'),
+                'jenis_buku'    => $this->post('jenis_buku'),
+            ];
+            if($data ['judul'] === null) {
+                $this->response([
+                    'status' => REST_Controller::HTTP_BAD_REQUEST,
+                    'message' => 'Permintaan Tidak Valid'
+                ]); 
+            } else {
+                if ($this->buku->createBuku($data) > 0) {
+                    $this->response([
+                        'status' => REST_Controller::HTTP_CREATED,
+                        'message' => 'Data Perusahaan Berhasil Dibuat'
+                    ]);
+                } 
+            }
+        } 
 	
 	public function index_put() {
             $id = $this->put('id');

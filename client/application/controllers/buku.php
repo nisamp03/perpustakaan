@@ -27,11 +27,11 @@ Class Buku extends CI_Controller{
     function simpan() {
         if (isset($_POST['submit'])) {
             $data = array(
-                'judul'           => $this->input->post('nama_iuphhk'),
-                'penulis'               => $this->input->post('sk_izin'),
-                'tahun_terbit'            => $this->input->post('tanggal_sk'),
-                'penerbit'         => $this->input->post('alamat_kantor'),
-                'jenis_buku'        => $this->input->post('telepon_kantor')); 
+                'judul'           => $this->input->post('judul'),
+                'penulis'               => $this->input->post('penulis'),
+                'tahun_terbit'            => $this->input->post('tahun_terbit'),
+                'penerbit'         => $this->input->post('penerbit'),
+                'jenis_buku'        => $this->input->post('jenis_buku')); 
             $insert = $this->curl->simple_post($this->api . '/buku', $data, array(CURLOPT_BUFFERSIZE => 10));
             if ($insert) {
                 $this->session->set_flashdata('info', 'data berhasil disimpan.');
@@ -51,7 +51,7 @@ Class Buku extends CI_Controller{
                 'id'                    => $this->input->post('id'),
                 'judul'                 => $this->input->post('judul'),
                 'penulis'               => $this->input->post('penulis'),
-                'tahun_terbit'          => $this->input->post('tanggal_sk'),
+                'tahun_terbit'          => $this->input->post('tahun_terbit'),
                 'penerbit'              => $this->input->post('penerbit'),
                 'jenis_buku'            => $this->input->post('jenis_buku')); 
             $update = $this->curl->simple_put($this->api . '/buku', $data, array(CURLOPT_BUFFERSIZE => 10));
