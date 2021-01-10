@@ -24,7 +24,7 @@
     $i=1;
     foreach ($data as $buku) {
         echo "<tr>
-              <td>$i</td>
+              <td>$buku->id</td>
               <td>$buku->judul</td>
               <td>$buku->penulis</td>
               <td>$buku->tahun_terbit</td>

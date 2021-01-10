@@ -138,6 +138,7 @@ $config['auth_source'] = 'ldap';
 |
 */
 $config['allow_auth_and_keys'] = TRUE;
+$config['strict_api_and_auth'] = TRUE; // force the use of both api and auth before a valid api request is made
 
 /*
 |--------------------------------------------------------------------------
@@ -323,7 +324,7 @@ $config['rest_keys_table'] = 'keys';
 |   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_keys'] = true;
+$config['rest_enable_keys'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -403,7 +404,7 @@ $config['rest_key_name'] = 'X-API-KEY';
 |   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_logging'] = FALSE;
+$config['rest_enable_logging'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -414,7 +415,7 @@ $config['rest_enable_logging'] = FALSE;
 | table name to match e.g. my_logs
 |
 */
-$config['rest_logs_table'] = 'logs';
+$config['rest_logs_table'] = 'tbl_api_logs';
 
 /*
 |--------------------------------------------------------------------------
@@ -545,7 +546,7 @@ $config['rest_language'] = 'english';
 | will access it through a browser
 |
 */
-$config['check_cors'] = FALSE;
+$config['check_cors'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -556,6 +557,7 @@ $config['check_cors'] = FALSE;
 |
 */
 $config['allowed_cors_headers'] = [
+  'Authorization',
   'Origin',
   'X-Requested-With',
   'Content-Type',
@@ -589,7 +591,7 @@ $config['allowed_cors_methods'] = [
 | source domain
 |
 */
-$config['allow_any_cors_domain'] = FALSE;
+$config['allow_any_cors_domain'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

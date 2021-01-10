@@ -8,7 +8,7 @@
 </head>
 <br />
 <?php echo form_open_multipart('buku/simpan'); ?>
-<h2>TAMBAH DATA PERUSAHAAN</h2>
+<h2>TAMBAH DATA BUKU</h2>
 <table class="table2">
     <tr>
         <td width=50%>Judul</td>
@@ -38,7 +38,7 @@
     <tr>
         <td colspan="3">
             <?php echo form_submit('submit', 'Simpan'); ?>
-            <?php //echo anchor('companies', 'Kembali'); ?>
+            <?php// echo anchor('buku', 'Kembali'); ?>
             <button onclick="goBack()">Kembali</button>
         </td>
     </tr>

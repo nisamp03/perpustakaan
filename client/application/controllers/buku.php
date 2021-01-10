@@ -3,7 +3,7 @@ Class Buku extends CI_Controller{
     var $api ="";
     function __construct() {
         parent::__construct();
-        $this->api="http://localhost/perpustakaan/server";
+        $this->api="http://localhost/rest-server/server/";
         // $this->load->model("user_model");
         $this->load->library('session');
         $this->load->library('curl');
